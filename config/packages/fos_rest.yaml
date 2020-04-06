@@ -1,0 +1,20 @@
+# Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+fos_rest:
+  routing_loader:
+    default_format: json
+  format_listener:
+    rules:
+      - { path: ^/, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+  exception:
+    codes:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+      'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': 404
+      'Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException': 401
+    messages:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+      'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': true
+      'Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException': true
+  body_converter:
+    enabled: true
+    validate: true
+    validation_errors_argument: validationErrors # This is the default value

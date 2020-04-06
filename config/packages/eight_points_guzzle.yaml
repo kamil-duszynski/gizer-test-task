@@ -1,0 +1,9 @@
+eight_points_guzzle:
+    clients:
+        score_client:
+            options:
+                timeout: 30
+                http_errors: true
+                headers:
+                    User-Agent: "EightPointsGuzzleBundle/v7"
+            plugin: ~
